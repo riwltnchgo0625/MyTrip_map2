@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--여행 이름-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter trip Name"
+            android:id="@+id/tripname"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#000000"
+            android:ems="10"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--여행 일정-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_event" />
+
+        <TextView
+            android:id="@+id/tripdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:background="?attr/editTextBackground"
+            android:hint="Select Trip Date"
+            android:textColor="?attr/editTextColor" />
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="선택"
+            android:textColor="#ffffff"
+            android:onClick="showDatePickerDialog"
+            android:id="@+id/btn_date"
+            android:background="@color/colorPrimary"/>
+
+
+    </LinearLayout>
+
+    <!--일정 입력-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_location" />
+
+        <TextView
+            android:id="@+id/tripplace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:background="?attr/editTextBackground"
+            android:hint="Select Place"
+            android:textColor="?attr/editTextColor" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:text="ADD TRIP"
+        android:textColor="#ffffff" />
+
+    </LinearLayout>
+
+</LinearLayout>
