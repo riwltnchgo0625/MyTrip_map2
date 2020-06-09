@@ -41,7 +41,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
     }
     public void onDateSet(DatePicker view, int year, int month, int day) {
         TextView tripdate = (TextView) getActivity().findViewById(R.id.tripdate);
-        tripdate.setText("Year: "+view.getYear()+" Month: "+view.getMonth()+" Day: "+view.getDayOfMonth());
+        tripdate.setText(view.getYear() +"년 " + view.getMonth() +  "월 " + view.getDayOfMonth() +"일");
     }
 
 

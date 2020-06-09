@@ -3,6 +3,10 @@
 
     <string name="action_settings">Settings</string>
     <string name="pick_date">Pick Date</string>
+    <string name="pick_course">Select Course</string>
     <string name="init_text">Neurobin Date Picker Example</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
