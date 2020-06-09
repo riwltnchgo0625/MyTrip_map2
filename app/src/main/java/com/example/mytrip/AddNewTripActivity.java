@@ -28,8 +28,7 @@ import java.util.Date;
 
 
 public class AddNewTripActivity extends AppCompatActivity
-    implements OnMapReadyCallback {
-
+        implements OnMapReadyCallback {
 
 
     private Button btn_date;
@@ -41,13 +40,13 @@ public class AddNewTripActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_trip);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        assert mapFragment != null;
+        mapFragment.getMapAsync(this);
         //onMapReady로
 
         btn_course = findViewById(R.id.btn_course);
-        btn_course.setOnClickListener(new View.OnClickListener(){
+        btn_course.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AddNewTripActivity.this, PlaceList_Activity.class);
@@ -64,8 +63,6 @@ public class AddNewTripActivity extends AppCompatActivity
     }*/
 
 
-
-
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -73,7 +70,7 @@ public class AddNewTripActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings){
+        if (id == R.id.action_settings) {
             return true;
         }
 
@@ -84,50 +81,56 @@ public class AddNewTripActivity extends AppCompatActivity
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
+
     private GoogleMap mMap;
 
     @Override
-    public void onMapReady(final GoogleMap googleMap) {
+    public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+      /*  mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng point) {
+                MarkerOptions mOptions = new MarkerOptions();
+                // 마커 타이틀
+                mOptions.title("부산");
+                Double latitude = point.latitude; // 위도
+                Double longitude = point.longitude; // 경도
+                // 마커의 스니펫(간단한 텍스트) 설정
+                mOptions.snippet(latitude.toString() + ", " + longitude.toString());
+                // LatLng: 위도 경도 쌍을 나타냄
+                mOptions.position(new LatLng(latitude, longitude));
+                // 마커(핀) 추가
+                googleMap.addMarker(mOptions);
+            }
+        });*/
 
-        LatLng SEOUL = new LatLng(37.56, 126.97);
-
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(SEOUL);
-        markerOptions.title("서울");
-        markerOptions.snippet("한국의 수도");
-        mMap.addMarker(markerOptions);
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
-
+        LatLng busan = new LatLng(35.1796, 129.0756);
+        mMap.addMarker(new MarkerOptions().position(busan).title("부산"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(busan));
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (resultCode == RESULT_OK&&data!=null) {
-//            String result = data.getStringExtra("reesultSetting");
-//
-//        }
-//        else if (resultCode==RESULT_CANCELED){
-//
-//        }
-//    }
+   /* @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+       if (resultCode == RESULT_OK&&data!=null) {
+            String result = data.getStringExtra("reesultSetting");
+
+        }
+        else if (resultCode==RESULT_CANCELED){
+
+        }
+    }
+*/
 
 
-
-//    AdapterView.OnItemClickListener itemClickListener =
-//            new AdapterView.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                    Object vo = (Object)parent.getAdapter().getItem(position);
-//                }
-//            };
-
-
-
+ /*   AdapterView.OnItemClickListener itemClickListener =
+            new AdapterView.OnItemClickListener() {
+                @Override
+               public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Object vo = (Object)parent.getAdapter().getItem(position);
+               }
+            };*/
 
 
 }
